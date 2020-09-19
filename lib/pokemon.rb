@@ -11,7 +11,8 @@ class Pokemon
         INSERT INTO pokemon (name, type)
         VALUES (?, ?)
       SQL
-      @db.execute(sql, self.name, self.type)
+      @db.execute("INSERT INTO pokemon (name, type)
+        VALUES (?, ?)", self.name, self.type)
     
   end 
   
