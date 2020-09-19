@@ -7,11 +7,15 @@ class Pokemon
   end 
   
   def self.save 
-    sql = <<-SQL 
-      INSERT INTO pokemon (name, type)
-      VALUES (?, ?)
-    SQL
-    @db.execute(sql, self.name, self.type)
+    if self.id
+    
+    else
+      sql = <<-SQL 
+        INSERT INTO pokemon (name, type)
+        VALUES (?, ?)
+      SQL
+      @db.execute(sql, self.name, self.type)
+    end
   end 
   
   def self.find
